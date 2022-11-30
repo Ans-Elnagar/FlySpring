@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.application.project.model.User;
 import com.application.project.myapi.function.FlydeleteUser;
 import com.application.project.repository.PersonService;
-import com.flyspring.autoroute.ArkRequest;
+import com.flyspring.autoroute.FlyRequest;
 
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
@@ -55,7 +55,7 @@ public class FlyDeleteUser {
         user.setLastName("Adams");
 
         MockServerRequest ms =  MockServerRequest.builder().pathVariable("id", "3").body(Mono.just(user));
-        ArkRequest request = new ArkRequest(ms);
+        FlyRequest request = new FlyRequest(ms);
             
         Mono<ServerResponse> response = flyDeleteUser.flypost(request);
 

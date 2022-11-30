@@ -29,7 +29,7 @@ import com.application.project.model.User;
 import com.application.project.myapi.FlysaveUser;
 import com.application.project.repository.PersonRepo;
 import com.application.project.repository.PersonService;
-import com.flyspring.autoroute.ArkRequest;
+import com.flyspring.autoroute.FlyRequest;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -64,7 +64,7 @@ public class FlysaveUserTest {
        person.setName("Lezter Hernandez");
        person.setEmail("lezterwithgod@gmail.com");
         MockServerRequest ms =  MockServerRequest.builder().body(Mono.just(person));
-        ArkRequest request = new ArkRequest(ms);
+        FlyRequest request = new FlyRequest(ms);
             
         Mono<ServerResponse> response = flysaveUser.flypost(request);
 

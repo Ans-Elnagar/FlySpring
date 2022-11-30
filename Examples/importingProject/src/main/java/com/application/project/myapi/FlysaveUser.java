@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import com.application.project.entity.PersonEntity;
 import com.application.project.repository.PersonService;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.flyspring.autoroute.ArkRequest;
+import com.flyspring.autoroute.FlyRequest;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
@@ -20,7 +20,7 @@ public class FlysaveUser {
     @Autowired
     public PersonService service;
     
-    public Mono<ServerResponse> flypost(ArkRequest request) throws Exception{
+    public Mono<ServerResponse> flypost(FlyRequest request) throws Exception{
         try {
             log.info("Save User API");
              return request.bodyToMono(PersonEntity.class).flatMap(req->{

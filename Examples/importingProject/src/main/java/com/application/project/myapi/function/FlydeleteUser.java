@@ -9,7 +9,7 @@ import com.application.project.entity.PersonEntity;
 import com.application.project.model.User;
 import com.application.project.repository.PersonService;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.flyspring.autoroute.ArkRequest;
+import com.flyspring.autoroute.FlyRequest;
 import com.flyspring.autoroute.annotations.PathVariableAnnotation;
 
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ public class FlydeleteUser {
     public PersonService service;
 
     @PathVariableAnnotation(name="{id}")
-    public Mono<ServerResponse> flypost(ArkRequest request) throws Exception{
+    public Mono<ServerResponse> flypost(FlyRequest request) throws Exception{
         try {
             log.info("Update User API");
             // if(!request.queryParam("id").isPresent()){

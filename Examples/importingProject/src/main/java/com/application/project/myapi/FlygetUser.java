@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import com.application.project.repository.PersonService;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.flyspring.autoroute.ArkRequest;
+import com.flyspring.autoroute.FlyRequest;
 import com.flyspring.autoroute.annotations.PathVariableAnnotation;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class FlygetUser {
     //     this.service= SpringContext.getBean(PersonService.class);
     // }
     @PathVariableAnnotation(name = "{id}")
-    public Mono<ServerResponse> flyget(ArkRequest request) throws Exception{
+    public Mono<ServerResponse> flyget(FlyRequest request) throws Exception{
         try {
 
             if(request.getPathVariable("id").isEmpty()){

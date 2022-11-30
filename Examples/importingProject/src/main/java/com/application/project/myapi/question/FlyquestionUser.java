@@ -3,7 +3,7 @@ package com.application.project.myapi.question;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import com.flyspring.autoroute.ArkRequest;
+import com.flyspring.autoroute.FlyRequest;
 import com.flyspring.autoroute.annotations.PathVariableAnnotation;
 
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 public class FlyquestionUser {
 
     @PathVariableAnnotation(name ="{msg}")
-    public Mono<ServerResponse> flyget(ArkRequest request) throws Exception{
+    public Mono<ServerResponse> flyget(FlyRequest request) throws Exception{
         try {
             log.info("get question API");
             String msg = request.getPathVariable("msg");
